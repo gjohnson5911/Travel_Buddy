@@ -1,0 +1,39 @@
+ #wrapper {
+     width: 960px;
+     margin: 0 auto;
+}
+a {
+    display: inline-block;
+    margin-left: 20px;
+}
+header :first-child {
+    margin-left: 850px;
+}
+form {
+    width: 600px;
+}
+label {
+    width: 80px;
+    margin: 10px 50px;
+    display: inline-block;
+}
+input {
+    width: 300px;
+    margin: 10px
+}
+.date_label {
+    width: 120px;
+    margin: 10px 30px 10px 50px;
+}
+.date {
+    width: 250px;
+    margin-left: 40px;
+}
+input :only-of-type("submit"){
+    width: initial;
+    margin-left: 700px;
+}
+#submit {
+    width: 80px;
+    margin-left: 500px;
+}

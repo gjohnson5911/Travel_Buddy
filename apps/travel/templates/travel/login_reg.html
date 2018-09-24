@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login/Registration</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'travel/css/login_reg.css' %}">
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %} 
+            <p>{{ message }}</p>
+        {%endfor%}
+    {%endif%}
+    <div id="wrapper">
+        <h1>Welcome</h1>
+        <title>Register</title>
+        <form action="/register" id = 'register' method="POST">
+            {% csrf_token %}
+            
+            <label for="name">Name</label> 
+            <input type="text" name="name">
+            
+            <label for="username">Username:</label> 
+            <input type="text" name="username">
+            
+            <label for="email">Email:</label> 
+            <input type="email" name="email">
+            
+            <label for="password">Password:</label> 
+            <input type="password" name="password">
+            
+            <small>*Password should be at least 8 characters</small>
+            
+            <label for="verify">Verify Password:</label> 
+            <input type="password" name="verify">
+            
+            <input type="submit" class="submit" value="Register">
+        </form>
+        
+        <title>Login</title>
+        <form action="/login" id="login" method="POST">
+            {% csrf_token %}
+            
+            <label for="username">Username:</label> 
+            <input type="text" name="username">
+            
+            <label for="password">Password:</label> 
+            <input type="password" name="password">
+            
+            <input type="submit" class="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

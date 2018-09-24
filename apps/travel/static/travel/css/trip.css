@@ -1,0 +1,13 @@
+a {
+    display: inline-block;
+    margin-left: 20px;
+}
+header :first-child {
+    margin-left: 700px;
+}
+#top p {
+    margin: 10px 0 0 40px;
+}
+#bottom p {
+    margin: 10px 0 0 60px;
+}

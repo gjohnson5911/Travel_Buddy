@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Add Plan</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'travel/css/new_plan.css' %}">
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %} 
+            <p>{{ message }}</p>
+        {%endfor%}
+    {%endif%}
+    <div id="wrapper">
+        <header>
+            <a href="/travels">Home</a>
+            <a href="/main">Logout</a>
+        </header>
+        <h1>Add a Trip</h1>
+        <form action="/travels/new" method="POST">
+            {% csrf_token %}
+            
+            <label for="destination">Destination:</label>
+            <input type="text" name="destination">
+            
+            <label for="description">Description:</label>
+            <input type="text" name="description">
+
+            <label for="travel_start" class = "date_label">Travel Date From: </label>
+            <input type="date" name="travel_start" class="date">
+
+            <label for="travel_return" class = "date_label">Travel Date To:</label>
+            <input type="date" name="travel_return" class="date" >
+
+            <input type="submit" name="submit" id="submit" value="Add">
+        </form>
+    </div>
+</body>
+</html> 

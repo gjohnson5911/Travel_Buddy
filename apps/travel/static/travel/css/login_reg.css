@@ -1,0 +1,45 @@
+#wrapper {
+    width: 830px;
+    margin: 0 auto;
+}
+#register {
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    margin: 10px 10px 0 auto;
+    padding-top: 20px;
+}
+#login {
+    vertical-align: top;
+    border: 1px solid black;
+    display: inline-block;
+    width: 400px;
+    margin: 10px auto 10px 10px;
+    padding-top: 20px;
+}
+title {
+    text-align: center;
+    background-color: white;
+    width: 75px;
+    margin-left: 15px;
+    display: inline-block;
+    position: absolute
+}
+label {
+    width: 150px;
+    height: 20px;
+    margin: 10px 10px 0 5px;
+    display: inline-block;
+}
+input {
+    width: 200px;
+    margin: 10px 20px 0 0;
+    display: inline-block;
+}
+small {
+    display: block;
+}
+.submit {
+    margin: 20px 10px 60px 275px; 
+    width: 100px;
+}

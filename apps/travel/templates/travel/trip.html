@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Destination</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'travel/css/trip.css' %}">
+</head>
+<body>
+    <div id="wrapper">
+        <header>
+            <a href="/travels">Home</a>
+            <a href="/main">Logout</a>
+        </header>
+
+        <div id="top">
+            <h2>{{trip.destination}}</h2>
+            <p>Planned By: {{trip.creator_name}}</p>
+            <p>Description: {{trip.description}}</p>
+            <p>Travel Date From: {{trip.start_date}}</p>
+            <p>Travel Date To: {{trip.return_date}}</p>
+        </div>
+        
+        <div id="bottom">
+            <h3>Other users' joining the trip</h3>
+            {% for user in trip_users %}
+                <p>{{user.name}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
