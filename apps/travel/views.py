@@ -78,7 +78,14 @@ def register(request):
             messages.error(request, "Username is taken")
             return redirect('/main')
 
-        #if username is available, create user in DB and start session
+        #check that email isn't already taken
+        try_email = Users.objects.filter(email = email)
+        if len(try_email) > 0:
+
+            messages.error(request, "Email is taken")
+            return redirect("/main")
+
+        #if username and email are both available, create user in DB and start session
         else:
         
             Users.objects.create(name = name, username = username, email = email, password = password)
@@ -96,18 +103,12 @@ def home(request):
     user_plans = Trips.objects.filter(creator_name = user.name,)
     joined_plans = Trips.objects.filter(users = user)
 
-    #get all travel plans, excluding the current user's
+    #get all travel plans, excluding ones created by the current user
     other_plans = Trips.objects.exclude(creator_name = user.name)
 
-    filter_plans = []
-    for plan in other_plans:
-        if len(plan.users.all()) <1:
-            filter_plans.append(plan)
-        else:
-            for acnt in plan.users.all():
-                if not acnt == user:
-                    filter_plans.append(plan)
-                    break
+    #exclude all plans from other_plans that the user has joined
+    filter_plans = other_plans.exclude(users = user)
+
     context = {
         'user': user,
         'user_plans': user_plans,
